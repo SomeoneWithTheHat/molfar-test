@@ -1,0 +1,242 @@
+/* Global styles */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html body,
+html body.modal-open {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  color: #384556;
+}
+
+button:focus {
+  outline: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+main {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding-top: 80px;
+  min-height: 400px;
+  /* Just for one button */
+  justify-content: center;
+  align-items: center;
+}
+
+.ml-blue-btn {
+  border: none;
+  background-color: #238cbb;
+  width: 10rem;
+  height: 3rem;
+  color: #fff;
+  font-family: "Nunito Sans", sans-serif;
+  border-radius: 3rem;
+}
+/* Catalog styles */
+.react-app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  .nav {
+    color: #fff;
+    height: 80px;
+    background: #238cbb;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    z-index: 2000;
+
+    &-buttons {
+      padding-right: 4rem;
+      display: flex;
+      align-items: center;
+    }
+
+    &-button {
+      border: none;
+      background-color: inherit;
+      color: #1f3d5e;
+      margin-left: 2rem;
+      letter-spacing: -0.896px;
+
+      &_add-memorial {
+        padding: 0.5rem 1.2rem;
+        border-radius: 30px;
+        background: #ffffff;
+        color: #238cbb;
+      }
+    }
+  }
+}
+
+/* Modal window styles */
+
+/* -- Overriding bootstrap behavior */
+.ml-modal.modal-dialog {
+  max-width: none;
+  margin: 180px 1rem 0;
+
+  .modal-content {
+    max-width: 686px;
+    border-radius: 20px;
+    margin: auto;
+
+    .container {
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-open .modal-backdrop {
+    opacity: 1;
+    background-color: #f7f8fb;
+  }
+  .ml-modal-close {
+    left: 1rem;
+  }
+}
+
+/* -- Styling modal */
+.ml-modal {
+  &-heading {
+    font-size: 32px;
+    font-weight: 700;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  &-top {
+    height: 230px;
+    border-radius: 20px;
+
+    .dropdown {
+      margin-top: 10px;
+      text-align: right;
+      svg {
+        fill: #fff;
+        margin-right: 1rem;
+      }
+
+      &-item {
+        svg {
+          fill: #384556;
+        }
+      }
+    }
+  }
+
+  &-body {
+    font-size: 14px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    .left-col {
+      display: flex;
+      flex-direction: column;
+
+      .ml-modal {
+        &-date,
+        &-location {
+          display: flex;
+          flex-direction: row;
+          margin-top: 2.4rem;
+
+          p {
+            margin-bottom: 0;
+          }
+          a,
+          a:active,
+          a:focus,
+          a:visited {
+            color: #238cbb;
+            font-weight: 700;
+          }
+        }
+        &-icon {
+          padding: 0 1.5rem;
+          flex-grow: 0;
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    h4 {
+      font-weight: 700;
+    }
+  }
+
+  &-footer {
+    .col {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+
+      button {
+        font-weight: 700;
+        width: 199px;
+        padding-right: 1rem;
+      }
+
+      svg {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  &-close {
+    z-index: 2000;
+    position: fixed;
+    top: 120px;
+    right: 40px;
+
+    &_lg {
+      display: none;
+      background: #3a4655;
+      border-radius: 100%;
+      padding: 0.3em;
+      cursor: pointer;
+
+      svg {
+        fill: #fff;
+      }
+    }
+
+    &_sm {
+      display: none;
+      align-items: center;
+      display: flex;
+      cursor: pointer;
+
+      .close-text {
+        margin-left: 5px;
+      }
+    }
+
+    @media (min-width: 576px) {
+      &_lg {
+        display: block;
+      }
+      &_sm {
+        display: none;
+      }
+    }
+  }
+}
